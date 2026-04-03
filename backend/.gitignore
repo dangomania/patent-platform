@@ -42,4 +42,4 @@ var/
 /sources/
 /venv/
 constraints*.txt
-requirements*.txt
+requirements*.txt.env
