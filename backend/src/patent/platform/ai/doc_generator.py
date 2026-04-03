@@ -20,7 +20,8 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
 
-_client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+def _client():
+    return anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
 _TEMPLATE_PATH = _os.path.join(_os.path.dirname(__file__), "templates", "OA-trans-template.docx")
 
@@ -139,7 +140,7 @@ Rules:
 
 def structure_translation(translation: str) -> dict:
     """Use Claude to parse translation into structured JSON."""
-    msg = _client.messages.create(
+    msg = _client().messages.create(
         model="claude-haiku-4-5-20251001",
         max_tokens=4096,
         system=_EXTRACT_PROMPT,

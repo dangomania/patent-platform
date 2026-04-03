@@ -11,7 +11,8 @@ import os
 from .google_translate import translate_ja_to_en, is_configured as google_configured
 from .translation_dict import preprocess
 
-client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+def _client():
+    return anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
 SYSTEM_PROMPT = """You are an expert Japanese patent attorney and translator specializing in JPO Office Actions (拒絶理由通知).
 
@@ -58,7 +59,7 @@ def translate_oa(japanese_text: str, user_rules: list[dict] = []) -> str:
         # fall through to Claude if Google fails
 
     # Claude fallback
-    with client.messages.stream(
+    with _client().messages.stream(
         model="claude-opus-4-6",
         max_tokens=16000,
         thinking={"type": "adaptive"},
@@ -76,7 +77,7 @@ def draft_response(japanese_text: str, translation: str) -> str:
 ## 英訳
 {translation}"""
 
-    with client.messages.stream(
+    with _client().messages.stream(
         model="claude-opus-4-6",
         max_tokens=16000,
         thinking={"type": "adaptive"},
