@@ -28,6 +28,11 @@ dependencies = [
     "plone.api",
     "plone.restapi",
     "plone.volto",
+    "anthropic",
+    "httpx",
+    "python-docx",
+    "sudachipy",
+    "sudachidict-core",
 ]
 
 [dependency-groups]
