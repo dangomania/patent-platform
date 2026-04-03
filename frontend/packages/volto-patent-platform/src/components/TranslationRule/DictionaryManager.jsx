@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { settings } from '@plone/volto/config';
+import config from '@plone/volto/registry';
+const { settings } = config;
 
 const DictionaryManager = () => {
   const [rules, setRules] = useState([]);

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { flattenToAppURL } from '@plone/volto/helpers';
-import { settings } from '@plone/volto/config';
+import config from '@plone/volto/registry';
+const { settings } = config;
 
 const esc = (s) =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
