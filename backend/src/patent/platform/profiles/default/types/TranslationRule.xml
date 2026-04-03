@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<object name="TranslationRule" meta_type="Dexterity FTI" i18n:domain="patent.platform"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+  <property name="title" i18n:translate="">Translation Rule</property>
+  <property name="description" i18n:translate="">User-specific translation substitution rule</property>
+  <property name="allow_discussion">False</property>
+  <property name="global_allow">False</property>
+  <property name="filter_content_types">True</property>
+  <property name="allowed_content_types" />
+  <property name="schema">patent.platform.content.translation_rule.ITranslationRule</property>
+  <property name="klass">patent.platform.content.translation_rule.TranslationRule</property>
+  <property name="add_permission">cmf.AddPortalContent</property>
+  <property name="behaviors">
+    <element value="plone.dublincore" />
+    <element value="plone.ownership" />
+  </property>
+  <property name="view_methods">
+    <element value="view" />
+  </property>
+  <property name="default_view">view</property>
+  <alias from="(Default)" to="(dynamic view)" />
+  <alias from="view" to="@@view" />
+  <alias from="edit" to="@@edit" />
+</object>

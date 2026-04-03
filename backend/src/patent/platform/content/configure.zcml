@@ -1,0 +1,25 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:plone="http://namespaces.plone.org/plone"
+           i18n_domain="patent.platform">
+
+  <class class=".case.Case">
+    <require permission="zope2.View"
+             interface=".case.ICase" />
+  </class>
+
+  <class class=".job.Job">
+    <require permission="zope2.View"
+             interface=".job.IJob" />
+  </class>
+
+  <class class=".office_action.OfficeAction">
+    <require permission="zope2.View"
+             interface=".office_action.IOfficeAction" />
+  </class>
+
+  <class class=".translation_rule.TranslationRule">
+    <require permission="zope2.View"
+             interface=".translation_rule.ITranslationRule" />
+  </class>
+
+</configure>

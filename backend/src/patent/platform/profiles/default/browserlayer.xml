@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layers>
+  <layer interface="patent.platform.interfaces.IBrowserLayer"
+         name="patent.platform"
+  />
+</layers>

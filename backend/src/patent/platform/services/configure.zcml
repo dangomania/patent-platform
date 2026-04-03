@@ -1,0 +1,104 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:plone="http://namespaces.plone.org/plone"
+           i18n_domain="patent.platform">
+
+  <!-- ── Stateless tools (context = site root) ───────────────────────── -->
+
+  <plone:service
+      method="POST"
+      for="Products.CMFCore.interfaces.ISiteRoot"
+      factory=".antecedent.AntecedentCheckService"
+      name="@antecedent-check"
+      permission="zope2.View" />
+
+  <plone:service
+      method="POST"
+      for="Products.CMFCore.interfaces.ISiteRoot"
+      factory=".back_translate.BackTranslateService"
+      name="@back-translate"
+      permission="zope2.View" />
+
+  <plone:service
+      method="GET"
+      for="Products.CMFCore.interfaces.ISiteRoot"
+      factory=".translation_rules.TranslationRulesGet"
+      name="@translation-rules"
+      permission="zope2.View" />
+
+  <plone:service
+      method="POST"
+      for="Products.CMFCore.interfaces.ISiteRoot"
+      factory=".translation_rules.TranslationRulesPost"
+      name="@translation-rules"
+      permission="zope2.View" />
+
+  <plone:service
+      method="GET"
+      for="Products.CMFCore.interfaces.ISiteRoot"
+      factory=".dashboard_data.DashboardDataService"
+      name="@dashboard-data"
+      permission="zope2.View" />
+
+  <!-- ── OfficeAction context services ───────────────────────────────── -->
+
+  <plone:service
+      method="POST"
+      for="patent.platform.content.office_action.IOfficeAction"
+      factory=".translate_oa.TranslateOAService"
+      name="@translate-oa"
+      permission="zope2.View" />
+
+  <plone:service
+      method="POST"
+      for="patent.platform.content.office_action.IOfficeAction"
+      factory=".translate_oa.SaveTranslationService"
+      name="@save-translation"
+      permission="zope2.View" />
+
+  <plone:service
+      method="GET"
+      for="patent.platform.content.office_action.IOfficeAction"
+      factory=".download_docx.DownloadDocxService"
+      name="@download-docx"
+      permission="zope2.View" />
+
+  <plone:service
+      method="POST"
+      for="patent.platform.content.office_action.IOfficeAction"
+      factory=".draft_response.DraftResponseService"
+      name="@draft-response"
+      permission="zope2.View" />
+
+  <!-- ── Case context services ───────────────────────────────────────── -->
+
+  <plone:service
+      method="GET"
+      for="patent.platform.content.case.ICase"
+      factory=".jpo_fetch_list.JpoFetchListService"
+      name="@jpo-fetch-list"
+      permission="zope2.View" />
+
+  <plone:service
+      method="GET"
+      for="patent.platform.content.case.ICase"
+      factory=".jpo_fetch_doc.JpoFetchDocService"
+      name="@jpo-fetch-doc"
+      permission="zope2.View" />
+
+  <!-- ── TranslationRule context services ────────────────────────────── -->
+
+  <plone:service
+      method="PATCH"
+      for="patent.platform.content.translation_rule.ITranslationRule"
+      factory=".translation_rules.TranslationRulePatch"
+      name="@update"
+      permission="zope2.View" />
+
+  <plone:service
+      method="DELETE"
+      for="patent.platform.content.translation_rule.ITranslationRule"
+      factory=".translation_rules.TranslationRuleDelete"
+      name="@delete"
+      permission="zope2.View" />
+
+</configure>

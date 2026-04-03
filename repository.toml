@@ -1,0 +1,32 @@
+[repository]
+name = "patent-platform"
+changelog = "CHANGELOG.md"
+version = "version.txt"
+version_format = "calver"
+container_images_prefix = "ghcr.io/collective/patent-platform"
+compose = ["docker-compose.yml"]
+
+[repository.towncrier]
+section = "Project"
+settings = "towncrier.toml"
+
+[backend.package]
+name = "patent.platform"
+path = "backend"
+changelog = "backend/CHANGELOG.md"
+towncrier_settings = "backend/pyproject.toml"
+base_package = "Products.CMFPlone"
+publish = false
+
+[frontend.package]
+name = "volto-patent-platform"
+path = "frontend/packages/volto-patent-platform"
+changelog = "frontend/packages/volto-patent-platform/CHANGELOG.md"
+towncrier_settings = "frontend/packages/volto-patent-platform/towncrier.toml"
+base_package = "@plone/volto"
+publish = false
+
+[cookieplone]
+template = "project"
+template_version = "f72da68871a68e8e2c5c655524c998724927daba"
+generated_date = "2026-04-02 12:46:03"

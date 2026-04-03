@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<object name="PatentCase" meta_type="Dexterity FTI" i18n:domain="patent.platform"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+  <property name="title" i18n:translate="">Patent Case</property>
+  <property name="description" i18n:translate="">A patent prosecution case (案件)</property>
+  <property name="allow_discussion">False</property>
+  <property name="global_allow">True</property>
+  <property name="filter_content_types">True</property>
+  <property name="allowed_content_types">
+    <element value="PatentJob" />
+    <element value="TranslationRule" />
+  </property>
+  <property name="schema">patent.platform.content.case.ICase</property>
+  <property name="klass">patent.platform.content.case.Case</property>
+  <property name="add_permission">cmf.AddPortalContent</property>
+  <property name="behaviors">
+    <element value="plone.dublincore" />
+    <element value="plone.namefromtitle" />
+    <element value="plone.ownership" />
+  </property>
+  <property name="view_methods">
+    <element value="view" />
+  </property>
+  <property name="default_view">view</property>
+  <alias from="(Default)" to="(dynamic view)" />
+  <alias from="view" to="@@view" />
+  <alias from="edit" to="@@edit" />
+</object>
